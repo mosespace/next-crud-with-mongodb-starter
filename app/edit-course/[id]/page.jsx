@@ -1,10 +1,12 @@
 import EditForm from "@/components/EditForm";
+import getCourse from "@/controllers/getSingleCourse";
 import React from "react";
 
-export default function EditCourse() {
+export default async function EditCourse({ params: { id } }) {
+  const course = await getCourse(id);
   return (
     <>
-      <EditForm />
+      <EditForm data={course} />
     </>
   );
 }
